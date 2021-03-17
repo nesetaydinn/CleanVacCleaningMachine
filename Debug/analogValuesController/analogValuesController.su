@@ -1,0 +1,6 @@
+analogValuesController.c:21:6:readAnalog2Values	24	static
+analogValuesController.c:40:10:getAnalogValue1	4	static
+analogValuesController.c:41:10:getAnalogValue2	4	static
+analogValuesController.c:55:10:valuesMap	16	static
+analogValuesController.c:59:9:valuesMapInt	16	static
+analogValuesController.c:62:9:valuesMapFloat	24	static

@@ -1,0 +1,9 @@
+lcd_i2cModule.c:74:6:LCD_i2cDeviceCheck	8	static
+lcd_i2cModule.c:89:6:LCD_Set_Command	16	static
+lcd_i2cModule.c:110:6:LCD_Write_Data	16	static
+lcd_i2cModule.c:131:6:LCD_Clear	80	static
+lcd_i2cModule.c:144:6:LCD_SetCursor	80	static
+lcd_i2cModule.c:159:6:LCD_Send_String	128	dynamic
+lcd_i2cModule.c:220:6:LCD_Print	112	dynamic
+lcd_i2cModule.c:233:6:LCD_BackLight	80	static
+lcd_i2cModule.c:251:6:LCD_Init	80	static
