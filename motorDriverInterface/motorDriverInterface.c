@@ -460,7 +460,7 @@ void MDI_sendDataChannel2(uint16_t angleVal, uint8_t kp, uint8_t ki, uint8_t kd,
  * @param factor -> get factor of Pid elements
  * @return none
  */
-void MDI_sendDataChannel2Ver2(uint16_t speed, uint8_t kp, uint8_t ki,uint8_t kd,
+void MDI_sendDataChannel2Ver2(int16_t speed, uint8_t kp, uint8_t ki,uint8_t kd,
 		uint8_t soft_k, uint8_t soft_f) {
 	uint16_t checksumTmp = 0;
 	uint8_t tmpArr[] = { speed >> 8, speed & 0xFF };

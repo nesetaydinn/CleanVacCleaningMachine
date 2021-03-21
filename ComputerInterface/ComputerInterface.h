@@ -8,6 +8,10 @@
 #ifndef COMPUTERINTERFACE_H_
 #define COMPUTERINTERFACE_H_
 
+#define COMPUTERINTERFACE_ACTIVE 0
+
+#if COMPUTERINTERFACE_ACTIVE
+
 #include "main.h"
 #include "FreeRTOS.h"
 #include "task.h"
@@ -27,5 +31,8 @@ void CI_sendDataChannel(uint16_t lenght, int32_t steer_poss,
 void CI_enableGetDataChannel(void);
 void CI_getDataChannel_IT(UART_HandleTypeDef *callBackHandle);
 void testCIsend(void);
+
+
+#endif
 
 #endif /* COMPUTERINTERFACE_H_ */

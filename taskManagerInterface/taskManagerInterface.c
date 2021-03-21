@@ -22,6 +22,7 @@ void sendDataUart2Task(void *params);
 void getDataUart1Task(void *params);
 void getDataUart2Task(void *params);
 void adcReadTask(void *params);
+void adcReadTask2(void *params);
 void lcdTask(void *params);
 void buttonControlTask(void *params);
 
@@ -48,6 +49,7 @@ void tasks_init(void){
 		xTaskCreate(getDataUart1Task, "get Uart 1", configMINIMAL_STACK_SIZE, NULL,  55, NULL);
 		xTaskCreate(getDataUart2Task, "get Uart 2", configMINIMAL_STACK_SIZE, NULL,  55 , NULL);
 		xTaskCreate(adcReadTask, "adc read", configMINIMAL_STACK_SIZE, NULL,   55, NULL);
+		xTaskCreate(adcReadTask2, "adc2 read", configMINIMAL_STACK_SIZE, NULL,   55, NULL);
 		xTaskCreate(lcdTask, "lcd controller", configMINIMAL_STACK_SIZE*2, NULL,  55 , NULL);
 		xTaskCreate(buttonControlTask, "button controller", configMINIMAL_STACK_SIZE*2, NULL,  55 , NULL);
 
@@ -84,15 +86,29 @@ void getDataUart2Task(void *params){
 }
 void adcReadTask(void *params){
 	uint16_t val1;
+//	int16_t val2;
+	while(1){
+		readAnalogVal1(&ADCREADCH1);
+		val1=valuesMapWFloat(getADC1(),0,getVdda(),140,860);
+		setDriver1AngleValue(val1);
+
+		/*readAnalog2Values(&ADCREADCH1,&ADCREADCH2);
+			val1=valuesMapWFloat(getADC1(),0,getVdda(),140,860);
+			setDriver1AngleValue(val1);
+			vTaskDelay(1);
+			val2=valuesMapFloat(getADC2(),0,getVdda(),-10000,10000);
+			setDriver2AngleValue(val2);
+			vTaskDelay(1);*/
+	}
+}
+void adcReadTask2(void *params){
+
 	int16_t val2;
 	while(1){
-		readAnalog2Values(&ADCREADCH1,&ADCREADCH2);
-			val1=valuesMap(getAnalogValue1(),0,4095,140,860);
-			setDriver1AngleValue(val1);
-			vTaskDelay(10);
-			val2=valuesMapInt(getAnalogValue2(),0,4095,-10000,10000);
-			setDriver2AngleValue(val2);
-			vTaskDelay(10);
+		readAnalogVal2(&ADCREADCH2);
+		val2=valuesMapFloat(getADC2(),0,getVdda(),-10000,10000);
+		setDriver2AngleValue(val2);
+
 	}
 }
 void lcdTask(void *params){

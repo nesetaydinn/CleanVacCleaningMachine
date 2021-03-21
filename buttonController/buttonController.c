@@ -70,15 +70,15 @@ uint8_t minusButton_Listenner_For_MenuControl(void) {
 void btnParameterInit(void){
 	HAL_TIM_Base_Start_IT(&BTNCOUNTER);
 	drv1.angle=0;
-	drv1.pid_kd=0;
-	drv1.pid_ki=0;
-	drv1.pid_kp=0;
-	drv1.factor=0;
+	drv1.pid_kp=100;
+	drv1.pid_ki=1;
+	drv1.pid_kd=200;
+	drv1.factor=100;
 
 	drv2.speed =0;
-	drv2.pid_kd=0;
-	drv2.pid_ki=20;
-	drv2.pid_kp=200;
+	drv2.pid_kp=70;
+	drv2.pid_ki=1;
+	drv2.pid_kd=1;
 	drv2.soft_k =1;
 	drv2.soft_f =1;
 
@@ -142,6 +142,7 @@ void buttonController(void){
 			case 0: if(drv2.pid_kd<255) drv2.pid_kp++; break;
 			case 1: if(drv2.pid_ki<255) drv2.pid_ki++; break;
 			case 2: if(drv2.pid_kp<255) drv2.pid_kd++; break;
+			case 3: if(drv2.soft_f<5 && drv2.soft_k<5) drv2.soft_f++; drv2.soft_k++;break;
 			}
 		}
 		if(2==minusBtnListenner)selectedLcdItem=1;
@@ -150,6 +151,7 @@ void buttonController(void){
 			case 0: if(drv2.pid_kd>0) drv2.pid_kp--; break;
 			case 1: if(drv2.pid_ki>0) drv2.pid_ki--; break;
 			case 2: if(drv2.pid_kp>0) drv2.pid_kd--; break;
+			case 3: if(drv2.soft_f>0 && drv2.soft_k>0) drv2.soft_f--; drv2.soft_k--; break;
 			}
 		}
 	}

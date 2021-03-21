@@ -1,8 +1,9 @@
-taskManagerInterface.c:32:6:tasks_init	16	static
-taskManagerInterface.c:58:6:sendDataUart1Task	16	static
-taskManagerInterface.c:65:6:sendDataUart2Task	16	static
-taskManagerInterface.c:70:6:getDataUart1Task	16	static
-taskManagerInterface.c:78:6:getDataUart2Task	16	static
-taskManagerInterface.c:85:6:adcReadTask	32	static
-taskManagerInterface.c:98:6:lcdTask	16	static
-taskManagerInterface.c:108:6:buttonControlTask	16	static
+taskManagerInterface.c:33:6:tasks_init	16	static
+taskManagerInterface.c:60:6:sendDataUart1Task	16	static
+taskManagerInterface.c:67:6:sendDataUart2Task	16	static
+taskManagerInterface.c:72:6:getDataUart1Task	16	static
+taskManagerInterface.c:80:6:getDataUart2Task	16	static
+taskManagerInterface.c:87:6:adcReadTask	32	static
+taskManagerInterface.c:104:6:adcReadTask2	32	static
+taskManagerInterface.c:114:6:lcdTask	16	static
+taskManagerInterface.c:124:6:buttonControlTask	16	static

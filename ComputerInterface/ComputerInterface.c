@@ -5,6 +5,8 @@
  *      Author: neset
  */
 #include "ComputerInterface.h"
+
+#if COMPUTERINTERFACE_ACTIVE
 Com_interface getVals;
 
 /**
@@ -99,3 +101,4 @@ void CI_getDataChannel_IT(UART_HandleTypeDef *callBackHandle) {
 				HAL_UART_Receive_IT(callBackHandle, &getTmpCH, 1);
 	}
 }
+#endif

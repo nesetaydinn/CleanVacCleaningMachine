@@ -49,20 +49,20 @@ void printToLcdDrv1Transmit(mD_interface sends,bool isSelected){
 }
 void printToLcdDrv2Receive(tMD_interface gets,bool isSelected){
 	LCD_SetCursor(LCD_I2C_CHANNEL2,1,1);
-	if(isSelected)	sprintf(lcdBuff,"-Gln2-a:%03d p:%02x",gets.speed,gets.pid_kp);
-	else	sprintf(lcdBuff,"Gln2 a:%03d p:%02x",gets.speed,gets.pid_kp);
+	if(isSelected)	sprintf(lcdBuff,"-Gln2-a:%05d s%01d",gets.speed,gets.soft_f);
+	else	sprintf(lcdBuff,"Gln2 a:%05d s%01d",gets.speed,gets.soft_f);
 	LCD_Send_String(LCD_I2C_CHANNEL2,lcdBuff,STR_NOSLIDE);
 	LCD_SetCursor(LCD_I2C_CHANNEL2,2,1);
-	sprintf(lcdBuff,"i:%02x d:%02x f:%02x",gets.pid_ki,gets.pid_kd,gets.soft_f);
+	sprintf(lcdBuff,"p:%02x i:%02x d:%02x",gets.pid_kp,gets.pid_ki,gets.pid_kd);
 	LCD_Send_String(LCD_I2C_CHANNEL2,lcdBuff,STR_NOSLIDE);
 }
 void printToLcdDrv2Transmit(tMD_interface sends,bool isSelected){
 	LCD_SetCursor(LCD_I2C_CHANNEL2,1,1);
-	if(isSelected)	sprintf(lcdBuff,"-Gdn2-a:%03d p:%02x",sends.speed,sends.pid_kp);
-	else	sprintf(lcdBuff,"Gdn2 a:%03d p:%02x",sends.speed,sends.pid_kp);
+	if(isSelected)	sprintf(lcdBuff,"-Gdn2-a:%05d s%01d",sends.speed,sends.soft_f);
+	else	sprintf(lcdBuff,"Gdn2 a:%05d s%01d",sends.speed,sends.soft_f);
 	LCD_Send_String(LCD_I2C_CHANNEL2,lcdBuff,STR_NOSLIDE);
 	LCD_SetCursor(LCD_I2C_CHANNEL2,2,1);
-	sprintf(lcdBuff,"i:%02x d:%02x f:%02x",sends.pid_ki,sends.pid_kd,sends.soft_f);
+	sprintf(lcdBuff,"p:%02x i:%02x d:%02x",sends.pid_kp,sends.pid_ki,sends.pid_kd);
 	LCD_Send_String(LCD_I2C_CHANNEL2,lcdBuff,STR_NOSLIDE);
 }
 void cleanTheLcd(void){

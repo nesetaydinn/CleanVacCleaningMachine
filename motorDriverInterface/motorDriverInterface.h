@@ -87,7 +87,7 @@ void MDI_getDataChannel1Ver4(void);
 void MDI_enableGetDataChannel1(void);
 void MDI_getDataChannel1_IT(UART_HandleTypeDef *callBackHandle);
 void MDI_sendDataChannel2(uint16_t angleVal,uint8_t kp,uint8_t ki,uint8_t kd,uint8_t rate );
-void MDI_sendDataChannel2Ver2(uint16_t speed, uint8_t kp, uint8_t ki,uint8_t kd,
+void MDI_sendDataChannel2Ver2(int16_t speed, uint8_t kp, uint8_t ki,uint8_t kd,
 		uint8_t soft_k, uint8_t soft_f );
 void MDI_getDataChannel2(void);
 void MDI_getDataChannel2Ver2(void);
